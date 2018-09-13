@@ -29,9 +29,15 @@ except:
 
 
 def sort_to_max(origin_list):
-    pass
+    for i in range(len(origin_list)):
+        for j in range(len(origin_list) - 1, i, -1):
+            if origin_list[j] < origin_list[j-1]:
+                origin_list[j], origin_list[j-1] = origin_list[j-1], origin_list[j]
 
-sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
+    return origin_list
+
+
+print(sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0]))
 
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
