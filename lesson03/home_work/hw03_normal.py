@@ -3,7 +3,24 @@
 # Первыми элементами ряда считать цифры 1 1
 
 def fibonacci(n, m):
-    pass
+    a = 0
+    b = 1
+    if n < 2:
+        print('fib1: {}'.format(b), end=' ')
+    for i in range(2, m + 1):
+        c = a + b
+        a, b = b, c
+        if i >= n:
+            print('fib({}): {}'.format(i, c), end=' ')
+try:
+    n = int(input('Enter n: '))
+    m = int(input('Enter m: '))
+    if n <= m:
+        fibonacci(n, m)
+    else:
+        print('n > m: not solved')
+except:
+    print('data error')
 
 # Задача-2:
 # Напишите функцию, сортирующую принимаемый список по возрастанию.
