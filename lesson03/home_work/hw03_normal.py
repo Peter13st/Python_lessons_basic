@@ -47,4 +47,21 @@ print(sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0]))
 # Задача-4:
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
 # Определить, будут ли они вершинами параллелограмма.
+def is_parallelogramm(x1,y1,x2,y2,x3,y3,x4,y4):
+    if (x2-x1 == x3-x4) and (y1-y4 == y2-y3):
+        print("It's parallelogramm!")
+    else:
+        print("It's not a parallelogramm!")
+try:
+    x1 = int(input('enter A1(x1):'))
+    y1 = int(input('enter A1(y1):'))
+    x2 = int(input('enter A2(x2):'))
+    y2 = int(input('enter A2(y2):'))
+    x3 = int(input('enter A3(x3):'))
+    y3 = int(input('enter A3(y3):'))
+    x4 = int(input('enter A4(x4):'))
+    y4 = int(input('enter A4(y4):'))
+except ValueError:
+    print('input error!')
 
+is_parallelogramm(x1,y1,x2,y2,x3,y3,x4,y4)
