@@ -26,3 +26,14 @@ print('lst_p2 = ', lst_p2)
 # + Элемент кратен 3
 # + Элемент положительный
 # + Элемент не кратен 4
+import random
+# Заполняем список произвольными целыми числами
+lst_gr = []
+le = int(input('Enter list lenght le: '))
+lr = int(input('Enter list low range +-lr: '))
+hr = int(input('Enter list high range +-hr: '))
+
+lst_gr = [random.randint(lr, hr) for _ in range(le)]
+print('lst_gr = ', lst_gr)
+lst_valid = [x for x in lst_gr if x>0 and x%3==0 and x%4!=0]
+print('lst_valid = ', lst_valid)
