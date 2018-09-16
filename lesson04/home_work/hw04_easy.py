@@ -5,7 +5,17 @@
 # Получить новый список, элементы которого будут
 # квадратами элементов исходного списка
 # [1, 2, 4, 0] --> [1, 4, 16, 0]
+import random
+# Заполняем список произвольными целыми числами
+lst_gr = []
+le = int(input('Enter list lenght le: '))
+lr = int(input('Enter list low range +-lr: '))
+hr = int(input('Enter list high range +-hr: '))
 
+lst_gr = [random.randint(lr, hr) for _ in range(le)]
+print('lst_gr = ', lst_gr)
+lst_p2 = [x**2 for x in lst_gr]
+print('lst_p2 = ', lst_p2)
 # Задание-2:
 # Даны два списка фруктов.
 # Получить список фруктов, присутствующих в обоих исходных списках.
