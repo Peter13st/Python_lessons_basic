@@ -13,3 +13,60 @@
 # Для решения данной задачи используйте алгоритмы из задания easy,
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
+import os
+choice = '0'
+go_home = os.getcwd()
+while choice in ['0','1','2','3','4']:
+    print('1. Перейти в папку')
+    print('2. Просмотреть содержимое текущей папки')
+    print('3. Удалить папку')
+    print('4. Создать папку')
+    choice = input('Введите номер пункта для выбора: ')
+    if choice == '1':
+        try:
+            go_dir = input('Введите имя папки в текущей директории ("." - в начало): ')
+            if go_dir == '.':
+                os.chdir(go_home)
+            else:
+                os.chdir(os.path.join(os.getcwd(), go_dir))
+        except Exception:
+            print('Ошибка при переходе!')
+    elif choice == '2':
+        print('Содержимое текущей папки: ')
+        print(os.listdir(os.getcwd()))
+    elif choice == '3':
+        rm_dir = input('Введите имя папки в текущей директории: ')
+        try:
+            print('Директория удаляется: ', rm_dir)
+            os.rmdir(os.path.join(os.getcwd(), rm_dir)) #- удаляет пустую директорию.
+        except Exception:
+            print('Такая директория не удаляется!')
+
+    elif choice == '4':
+        try:
+            mk_dir = input('Введите имя папки в текущей директории: ')
+            os.mkdir(os.path.join(os.getcwd(), mk_dir))
+        except FileExistsError:
+            print('Эту директорию невозможно создать!')
+    else:
+        print('Действие не выбрано!')
+        break
+exit(0)
+
+# os.chdir(path) #- смена текущей директории.
+# os.getcwd() #- текущая рабочая директория.
+# os.listdir(path=".") #- список файлов и директорий в папке.
+# os.mkdir(path, mode=0o777, *, dir_fd=None) #- создаёт директорию. OSError, если директория существует.
+# os.makedirs(path, mode=0o777, exist_ok=False) #- создаёт директорию, создавая при этом промежуточные директории.
+# os.remove(path, *, dir_fd=None) #- удаляет путь к файлу.
+# os.rmdir(path, *, dir_fd=None) #- удаляет пустую директорию.
+# os.removedirs(path) #- удаляет директорию, затем пытается удалить родительские директории, и удаляет их рекурсивно, пока они пусты.
+# try:
+#     os.mkdir(dir_path)
+# except FileExistsError:
+#     print('Такая директория уже существует'
+# try:
+#     print('директория удаляется: ', dir_i)
+#     os.rmdir(dir_path) #- удаляет пустую директорию.
+# except Exception:
+#     print('Такая директория не удаляется')
